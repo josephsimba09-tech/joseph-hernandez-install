@@ -36,7 +36,7 @@ const HeroSection = ({ onBookClick }) => {
             className="glass-effect px-6 py-2 text-xs font-bold tracking-[0.2em] uppercase text-zinc-300 border-white/10 rounded-full"
           >
             <Truck className="w-4 h-4 mr-2" />
-            Available for Travel • Nationwide Service
+            Union Local 1175 • Available Nationwide
           </Badge>
         </div>
 
@@ -45,9 +45,9 @@ const HeroSection = ({ onBookClick }) => {
           data-testid="hero-heading"
           className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase text-white mb-6 animate-fade-in-up animation-delay-100"
         >
-          Precision Event{" "}
+          Trade Show & Events{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
-            Technology
+            I&D Specialist
           </span>
         </h1>
 
@@ -56,8 +56,7 @@ const HeroSection = ({ onBookClick }) => {
           data-testid="hero-services"
           className="font-body text-base md:text-lg text-zinc-400 tracking-wide mb-10 animate-fade-in-up animation-delay-200"
         >
-          Stage Design • Video Walls • High Security Events • Technical
-          Direction
+          Booth Construction • Exhibits • Fixtures • Displays • Installation & Dismantle
         </p>
 
         {/* CTA Buttons */}

@@ -1,47 +1,47 @@
 import React from "react";
-import { Mic2, MonitorPlay, Users, MapPin, ShieldCheck, Settings } from "lucide-react";
+import { Hammer, Box, Layout, MapPin, Wrench, Building2 } from "lucide-react";
 
 const services = [
   {
-    title: "Stage Production",
+    title: "Booth Construction",
     description:
-      "Full-scale stage design and construction for conventions, concerts, and corporate events. Custom builds to your exact specifications.",
-    icon: Mic2,
+      "Expert installation and construction of trade show booths of all sizes. Custom builds, modular systems, and complex multi-level structures.",
+    icon: Hammer,
     span: "md:col-span-2",
   },
   {
-    title: "Video Walls",
+    title: "Exhibits & Displays",
     description:
-      "High-resolution LED wall configuration, setup, and real-time management for maximum visual impact.",
-    icon: MonitorPlay,
+      "Professional setup of exhibits, product displays, and branded environments that make your presence stand out.",
+    icon: Box,
     span: "md:col-span-1",
   },
   {
-    title: "Corporate & Private",
+    title: "Fixtures & Signage",
     description:
-      "Discreet, professional technical support for VIP events, private functions, and executive presentations.",
-    icon: Users,
+      "Installation of fixtures, banners, hanging signs, and structural elements with precision and safety compliance.",
+    icon: Layout,
     span: "md:col-span-1",
   },
   {
     title: "Trade Shows & Conventions",
     description:
-      "Complete booth setup, AV integration, networking infrastructure, and on-site technical direction for your trade show presence.",
+      "Full I&D services for trade shows, conventions, and corporate events. From setup to strike, handled professionally and on schedule.",
     icon: MapPin,
     span: "md:col-span-2",
   },
   {
-    title: "High Security Events",
+    title: "Dismantle & Strike",
     description:
-      "Specialized technical services for security-sensitive events requiring confidential handling and clearance protocols.",
-    icon: ShieldCheck,
+      "Efficient and careful teardown services. Proper packing, labeling, and preparation for shipping or storage.",
+    icon: Wrench,
     span: "md:col-span-1",
   },
   {
-    title: "Technical Direction",
+    title: "Corporate Events",
     description:
-      "End-to-end event technical management from planning through execution. Your single point of contact for all AV needs.",
-    icon: Settings,
+      "Installation services for corporate meetings, product launches, conferences, and special events requiring professional setup.",
+    icon: Building2,
     span: "md:col-span-2",
   },
 ];

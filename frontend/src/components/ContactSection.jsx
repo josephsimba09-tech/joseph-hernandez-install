@@ -28,9 +28,9 @@ const eventTypes = [
   "Trade Show",
   "Convention",
   "Corporate Event",
-  "Concert / Festival",
-  "Private Event",
-  "High Security Event",
+  "Product Launch",
+  "Conference",
+  "Expo / Exhibition",
   "Other",
 ];
 
@@ -150,9 +150,9 @@ const ContactSection = () => {
               Let's Work Together
             </h3>
             <p className="font-body text-zinc-400 leading-relaxed mb-8">
-              Ready to bring your event to life with professional AV and stage
-              technology? Fill out the form and I'll get back to you within 24
-              hours to discuss your project.
+              Need a reliable I&D tech for your next trade show, convention, or 
+              corporate event? Fill out the form and I'll get back to you to 
+              discuss your project.
             </p>
 
             <div className="space-y-6">
@@ -168,7 +168,7 @@ const ContactSection = () => {
                     Email
                   </span>
                   <span className="font-body text-white">
-                    contact@proavtech.com
+                    josephh590@yahoo.com
                   </span>
                 </div>
               </div>
@@ -184,7 +184,7 @@ const ContactSection = () => {
                   <span className="font-mono text-xs font-bold tracking-[0.15em] uppercase text-zinc-500 block mb-1">
                     Phone
                   </span>
-                  <span className="font-body text-white">(555) 123-4567</span>
+                  <span className="font-body text-white">(786) 915-2359</span>
                 </div>
               </div>
 
@@ -200,7 +200,7 @@ const ContactSection = () => {
                     Service Area
                   </span>
                   <span className="font-body text-white">
-                    Nationwide (All 50 States)
+                    Nationwide • Union Local 1175
                   </span>
                 </div>
               </div>

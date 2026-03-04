@@ -1,31 +1,31 @@
 import React from "react";
-import { CheckCircle2, Award, Clock, Shield } from "lucide-react";
+import { Award, Clock, Users, Wrench } from "lucide-react";
 
 const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "500+", label: "Events Completed" },
+  { value: "Local", label: "Union 1175" },
   { value: "50", label: "States Served" },
-  { value: "100%", label: "Client Satisfaction" },
+  { value: "100%", label: "Reliability" },
+  { value: "24/7", label: "Availability" },
 ];
 
 const features = [
   {
     icon: Award,
-    title: "Industry Expertise",
+    title: "Union Certified",
     description:
-      "Extensive experience across trade shows, conventions, concerts, and private events.",
+      "Member of Local 1175 and affiliates. Professional standards and safety compliance.",
   },
   {
     icon: Clock,
-    title: "Reliable & Punctual",
+    title: "Reliable & On Schedule",
     description:
-      "On-time setup and breakdown. Your timeline is my priority.",
+      "On-time installation and dismantle. Your timeline is my priority.",
   },
   {
-    icon: Shield,
-    title: "Security Cleared",
+    icon: Users,
+    title: "Industry Connections",
     description:
-      "Experienced with high-security events and confidential requirements.",
+      "Affiliated with Eagle, Show Link, Momentum, Alliance, MC², Expo, ERP, and more.",
   },
 ];
 
@@ -44,20 +44,20 @@ const AboutSection = () => {
               About
             </span>
             <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight uppercase text-white mb-6">
-              Professional Event
+              Joseph Hernandez
               <br />
-              Technology Expert
+              I&D Specialist
             </h2>
             <p className="font-body text-zinc-400 leading-relaxed mb-8">
-              I'm an independent event technology specialist with over 15 years
-              of experience in the industry. From massive trade shows to
-              intimate private events, I bring the technical expertise and
-              professional reliability you need to make your event a success.
+              I'm an experienced Installation & Dismantle technician specializing 
+              in trade shows, conventions, and corporate events. I build booths, 
+              exhibits, fixtures, displays, and all types of structures for events 
+              across the country.
             </p>
             <p className="font-body text-zinc-400 leading-relaxed mb-8">
-              My services include complete stage production, video wall setup
-              and management, audio engineering, and full technical direction.
-              I travel nationwide and am equipped to handle events of any scale.
+              As a member of Local Union 1175 and its affiliates, I bring professional 
+              standards and reliability to every job. I work with top companies including 
+              Eagle, Show Link, Momentum, Alliance, MC², Expo, ERP, and more.
             </p>
 
             {/* Features */}

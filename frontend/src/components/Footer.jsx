@@ -1,5 +1,5 @@
 import React from "react";
-import { Mic2 } from "lucide-react";
+import { Hammer } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,10 +14,10 @@ const Footer = () => {
           {/* Logo / Brand */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center border border-blue-500/50 text-blue-500">
-              <Mic2 className="w-5 h-5" />
+              <Hammer className="w-5 h-5" />
             </div>
             <span className="font-heading text-xl font-bold tracking-wider uppercase text-white">
-              Pro AV Tech
+              Joseph Hernandez
             </span>
           </div>
 
@@ -52,10 +52,10 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center md:text-right">
             <p className="font-mono text-xs tracking-[0.1em] text-zinc-600">
-              SERVING NATIONWIDE
+              UNION LOCAL 1175 • NATIONWIDE SERVICE
             </p>
             <p className="font-mono text-xs tracking-[0.1em] text-zinc-600 mt-1">
-              © {currentYear} PRO AV TECH. ALL RIGHTS RESERVED.
+              © {currentYear} JOSEPH HERNANDEZ I&D. ALL RIGHTS RESERVED.
             </p>
           </div>
         </div>
