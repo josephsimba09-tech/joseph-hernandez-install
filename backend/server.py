@@ -5,11 +5,13 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 import re
+import asyncio
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+import resend
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -18,6 +20,11 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+# Resend configuration
+resend.api_key = os.environ.get('RESEND_API_KEY')
+SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'josephh590@yahoo.com')
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -92,6 +99,59 @@ class BookingInquiryResponse(BaseModel):
     created_at: str
 
 
+# Email notification helper
+async def send_booking_notification(booking: dict):
+    """Send email notification for new booking"""
+    if not resend.api_key:
+        logging.warning("RESEND_API_KEY not configured - skipping email notification")
+        return None
+    
+    html_content = f"""
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #0a0a0a; color: #ededed;">
+        <h1 style="color: #3b82f6; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">New Booking Request!</h1>
+        
+        <div style="background-color: #121212; padding: 20px; border-left: 4px solid #3b82f6; margin: 20px 0;">
+            <h2 style="color: #ffffff; margin-top: 0;">Contact Information</h2>
+            <p><strong style="color: #a1a1aa;">Name:</strong> {booking.get('name', 'N/A')}</p>
+            <p><strong style="color: #a1a1aa;">Email:</strong> <a href="mailto:{booking.get('email', '')}" style="color: #3b82f6;">{booking.get('email', 'N/A')}</a></p>
+            <p><strong style="color: #a1a1aa;">Phone:</strong> {booking.get('phone', 'Not provided')}</p>
+        </div>
+        
+        <div style="background-color: #121212; padding: 20px; border-left: 4px solid #22c55e; margin: 20px 0;">
+            <h2 style="color: #ffffff; margin-top: 0;">Event Details</h2>
+            <p><strong style="color: #a1a1aa;">Event Type:</strong> {booking.get('event_type', 'N/A')}</p>
+            <p><strong style="color: #a1a1aa;">Event Date:</strong> {booking.get('event_date', 'Not specified')}</p>
+            <p><strong style="color: #a1a1aa;">Location:</strong> {booking.get('location', 'Not specified')}</p>
+            <p><strong style="color: #a1a1aa;">Budget:</strong> {booking.get('budget', 'Not specified')}</p>
+        </div>
+        
+        <div style="background-color: #121212; padding: 20px; margin: 20px 0;">
+            <h2 style="color: #ffffff; margin-top: 0;">Additional Details</h2>
+            <p style="color: #d4d4d8;">{booking.get('details', 'No additional details provided.')}</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding: 20px; border-top: 1px solid #27272a;">
+            <p style="color: #71717a; font-size: 12px;">This notification was sent from your Joseph Hernandez I&D Specialist website.</p>
+        </div>
+    </div>
+    """
+    
+    params = {
+        "from": SENDER_EMAIL,
+        "to": [NOTIFICATION_EMAIL],
+        "subject": f"🔔 New Booking: {booking.get('event_type', 'Event')} - {booking.get('name', 'Unknown')}",
+        "html": html_content
+    }
+    
+    try:
+        email = await asyncio.to_thread(resend.Emails.send, params)
+        logging.info(f"Email notification sent successfully: {email.get('id')}")
+        return email
+    except Exception as e:
+        logging.error(f"Failed to send email notification: {str(e)}")
+        return None
+
+
 # Routes
 @api_router.get("/")
 async def root():
@@ -117,6 +177,9 @@ async def create_booking_inquiry(input: BookingInquiryCreate):
     
     # Log the new inquiry for notifications
     logging.info(f"New booking inquiry from {inquiry_obj.name} ({inquiry_obj.email}) - Event: {inquiry_obj.event_type}")
+    
+    # Send email notification (non-blocking)
+    asyncio.create_task(send_booking_notification(doc))
     
     return BookingInquiryResponse(
         id=doc['id'],
