@@ -1,34 +1,122 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Pro AV Tech - Custom Styles */
+
+/* Hero section styles */
+.hero-gradient {
+    background: linear-gradient(to top, #050505 0%, rgba(5,5,5,0.7) 40%, rgba(5,5,5,0.3) 70%, rgba(5,5,5,0.5) 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Glass effect */
+.glass-effect {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+/* Tech border */
+.tech-border {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.tech-border:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Neon glow effect */
+.neon-glow {
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+}
+
+/* Service card hover */
+.service-card {
+    transition: all 0.5s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Portfolio image hover */
+.portfolio-image {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-image:hover {
+    transform: scale(1.05);
+}
+
+/* Input styles override */
+.input-tech {
+    background: rgba(24, 24, 27, 0.8);
+    border-color: rgba(63, 63, 70, 1);
+    border-radius: 0;
+}
+
+.input-tech:focus {
+    border-color: rgba(59, 130, 246, 1);
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 1);
+}
+
+/* Button styles */
+.btn-primary {
+    background: #2563eb;
     color: white;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
-.App-link {
-    color: #61dafb;
+.btn-primary:hover {
+    background: #1d4ed8;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+.btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile sticky CTA */
+@media (max-width: 768px) {
+    .mobile-sticky-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 16px;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 50;
     }
-    to {
-        transform: rotate(360deg);
+}
+
+/* Section padding */
+.section-padding {
+    padding: 96px 24px;
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 128px 48px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-padding {
+        padding: 128px 96px;
     }
 }
