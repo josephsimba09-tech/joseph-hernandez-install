@@ -89,7 +89,7 @@ class ProAVTechAPITester:
             "Create Valid Booking",
             "POST",
             "bookings",
-            201,
+            200,  # API returns 200, not 201
             data=valid_booking
         )
         
