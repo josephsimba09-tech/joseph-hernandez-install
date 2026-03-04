@@ -1,0 +1,134 @@
+{
+  "design_system": {
+    "theme": "dark",
+    "typography": {
+      "font_family": {
+        "heading": "Barlow Condensed, sans-serif",
+        "body": "Manrope, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "h1": "text-6xl md:text-8xl font-black tracking-tighter uppercase",
+        "h2": "text-4xl md:text-6xl font-bold tracking-tight uppercase",
+        "h3": "text-2xl md:text-3xl font-semibold tracking-wide",
+        "body": "text-base md:text-lg font-normal leading-relaxed tracking-wide",
+        "label": "text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground"
+      },
+      "imports": [
+        "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Manrope:wght@300;400;600;800&family=JetBrains+Mono:wght@400&display=swap"
+      ]
+    },
+    "colors": {
+      "background": {
+        "default": "#050505",
+        "surface": "#0A0A0A",
+        "card": "#121212",
+        "overlay": "rgba(0,0,0,0.85)"
+      },
+      "text": {
+        "primary": "#EDEDED",
+        "secondary": "#A1A1AA",
+        "muted": "#52525B",
+        "accent": "#3B82F6"
+      },
+      "brand": {
+        "primary": "#007AFF",
+        "secondary": "#7000FF",
+        "accent": "#00E5FF",
+        "danger": "#FF3B30"
+      },
+      "border": {
+        "default": "#27272A",
+        "active": "#3B82F6",
+        "subtle": "rgba(255,255,255,0.05)"
+      }
+    },
+    "effects": {
+      "glass": "bg-black/40 backdrop-blur-xl border border-white/10",
+      "neon_glow": "shadow-[0_0_20px_rgba(0,122,255,0.3)]",
+      "tech_border": "border border-white/10 hover:border-blue-500/50 transition-colors duration-300",
+      "gradient_text": "bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400"
+    },
+    "spacing": {
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-6 md:gap-8"
+    }
+  },
+  "layout_strategies": {
+    "hero": {
+      "type": "immersive_video_static",
+      "structure": "Full-screen height (h-screen), centered content, heavy dark overlay (bg-black/70) to ensure text readability. Background image must be the 'Concert Stage' image.",
+      "elements": [
+        "Badge: 'AVAILABLE FOR TRAVEL / NATIONWIDE SERVICE' (Pill shape, glass effect)",
+        "H1: 'PRECISION EVENT TECHNOLOGY' (Massive, Condensed, Uppercase)",
+        "Subtext: 'Stage Design • Video Walls • High Security Events • Technical Direction'",
+        "CTA Group: 'Book Services' (Primary) + 'View Portfolio' (Ghost)"
+      ]
+    },
+    "services": {
+      "type": "bento_grid_mode_a",
+      "grid_config": "grid-cols-1 md:grid-cols-3 gap-6",
+      "cards": [
+        { "title": "Stage Production", "span": "col-span-1 md:col-span-2", "icon": "StageIcon", "desc": "Full-scale stage design and construction for conventions and concerts." },
+        { "title": "Video Walls", "span": "col-span-1", "icon": "MonitorIcon", "desc": "High-resolution LED wall configuration and management." },
+        { "title": "Corporate & Private", "span": "col-span-1", "icon": "UsersIcon", "desc": "Discreet, high-security technical support for VIP events." },
+        { "title": "Trade Shows", "span": "col-span-1 md:col-span-2", "icon": "MapIcon", "desc": "Booth setup, AV integration, and on-site technical direction." }
+      ]
+    },
+    "portfolio": {
+      "type": "masonry_gallery",
+      "structure": "Columns: 1 (mobile), 2 (tablet), 3 (desktop). Images must have hover reveal effects showing project details."
+    },
+    "contact": {
+      "type": "split_screen",
+      "left": "Contact Info & 'Scan to Save' QR Code placeholder",
+      "right": "Booking Form (Name, Event Type, Date, Budget, Details)",
+      "style": "Input fields must be high contrast (bg-zinc-900 border-zinc-700). Submit button must be full width."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-blue-600 hover:bg-blue-700 text-white rounded-none uppercase tracking-widest font-bold px-8 py-4 text-sm transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]",
+      "secondary": "bg-transparent border border-white/20 text-white hover:bg-white/10 rounded-none uppercase tracking-widest font-bold px-8 py-4 text-sm"
+    },
+    "cards": {
+      "service_card": "group relative overflow-hidden bg-zinc-900/50 border border-white/5 p-8 hover:border-blue-500/30 transition-all duration-500",
+      "portfolio_card": "relative aspect-[4/3] overflow-hidden rounded-sm group cursor-pointer"
+    },
+    "inputs": {
+      "default": "bg-zinc-900/80 border-zinc-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-none h-12 text-white placeholder:text-zinc-600"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1767969456717-5d0cdf1f1c18?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "service_audio": "https://images.unsplash.com/photo-1573283807132-f7b218208690?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "service_video": "https://images.unsplash.com/photo-1653998894571-ae645e479e86?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "portfolio_1": "https://images.unsplash.com/photo-1618613403887-ed08ea9f8f6e?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "portfolio_2": "https://images.pexels.com/photos/34625039/pexels-photo-34625039.jpeg",
+      "portfolio_3": "https://images.unsplash.com/photo-1702329203800-27c16b559276?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "texture_overlay": "https://images.unsplash.com/photo-1719885154356-f15a1b4261a6?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "icons": {
+      "library": "lucide-react",
+      "preferred": ["Mic2", "MonitorPlay", "Settings", "ShieldCheck", "Truck", "CalendarCheck"]
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react' and 'framer-motion' immediately.",
+    "2. FONTS: Add the Google Fonts import to index.css. Apply 'font-heading' to all H1-H3 and 'font-body' to p/span.",
+    "3. THEME: Force DARK MODE. Do not implement a light mode toggle. The brand is strictly dark/tech.",
+    "4. HERO: Implement the 'Immersive Video/Static' hero. Use the 'hero_bg' image with a heavy gradient overlay (bg-gradient-to-t from-black via-black/50 to-transparent).",
+    "5. SERVICES: Build the Bento Grid. Use the 'service_card' style. Ensure cards have a subtle hover lift (-translate-y-1).",
+    "6. FORM: The contact form is CRITICAL. It must look like a technical manifest. Use monospace font for labels.",
+    "7. MOBILE: Ensure the 'Book Me' button is sticky at the bottom on mobile screens for easy access via QR code.",
+    "8. FOOTER: Simple, technical footer. Include 'Serving Nationwide' and copyright."
+  ],
+  "universal_guidelines": [
+    "Do not use gradients for backgrounds, use solid colors or subtle noise textures.",
+    "Use 'sonner' for all notifications (form success/error).",
+    "Ensure all interactive elements have 'data-testid'.",
+    "Use 'framer-motion' for entrance animations (staggered fade-in for grid items)."
+  ]
+}
