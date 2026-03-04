@@ -3,39 +3,39 @@ import React from "react";
 const portfolioItems = [
   {
     image:
-      "https://images.unsplash.com/photo-1618613403887-ed08ea9f8f6e?crop=entropy&cs=srgb&fm=jpg&q=85",
-    title: "Corporate Convention",
-    category: "Stage Design",
+      "https://images.unsplash.com/photo-1767096600257-8089136850c5?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Convention Center Setup",
+    category: "Trade Show",
   },
   {
     image:
-      "https://images.pexels.com/photos/34625039/pexels-photo-34625039.jpeg",
-    title: "Music Festival",
-    category: "Full Production",
+      "https://images.unsplash.com/photo-1760001551764-14eddf965019?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Exhibition Hall",
+    category: "Convention",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1702329203800-27c16b559276?crop=entropy&cs=srgb&fm=jpg&q=85",
-    title: "Trade Show Booth",
-    category: "Video Walls",
+      "https://images.unsplash.com/photo-1662593614056-f3514348b0d5?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Large Scale Event",
+    category: "Expo Setup",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1573283807132-f7b218208690?crop=entropy&cs=srgb&fm=jpg&q=85",
-    title: "Audio Engineering",
-    category: "Technical Direction",
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Corporate Conference",
+    category: "Booth Installation",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1653998894571-ae645e479e86?crop=entropy&cs=srgb&fm=jpg&q=85",
-    title: "LED Wall Setup",
-    category: "Video Production",
+      "https://images.unsplash.com/photo-1591115765373-5207764f72e7?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Product Display",
+    category: "Exhibit Build",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1767969456717-5d0cdf1f1c18?crop=entropy&cs=srgb&fm=jpg&q=85",
-    title: "Concert Production",
-    category: "Stage & Lighting",
+      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?crop=entropy&cs=srgb&fm=jpg&q=85",
+    title: "Event Production",
+    category: "Full I&D",
   },
 ];
 
