@@ -45,8 +45,7 @@ const HeroSection = ({ onBookClick }) => {
           data-testid="hero-heading"
           className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase text-white mb-6 animate-fade-in-up animation-delay-100"
         >
-          Precision Event
-          <br />
+          Precision Event{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
             Technology
           </span>

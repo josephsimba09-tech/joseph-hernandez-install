@@ -1,11 +1,12 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, status
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import re
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
@@ -51,6 +52,30 @@ class BookingInquiryCreate(BaseModel):
     budget: Optional[str] = None
     location: Optional[str] = None
     details: Optional[str] = None
+    
+    @field_validator('name')
+    @classmethod
+    def name_not_empty(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Name is required')
+        return v.strip()
+    
+    @field_validator('email')
+    @classmethod
+    def email_valid(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Email is required')
+        email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        if not re.match(email_pattern, v.strip()):
+            raise ValueError('Invalid email format')
+        return v.strip()
+    
+    @field_validator('event_type')
+    @classmethod
+    def event_type_not_empty(cls, v):
+        if not v or not v.strip():
+            raise ValueError('Event type is required')
+        return v.strip()
 
 
 class BookingInquiryResponse(BaseModel):
@@ -78,7 +103,7 @@ async def health_check():
     return {"status": "healthy", "service": "Pro AV Tech API"}
 
 
-@api_router.post("/bookings", response_model=BookingInquiryResponse)
+@api_router.post("/bookings", response_model=BookingInquiryResponse, status_code=status.HTTP_201_CREATED)
 async def create_booking_inquiry(input: BookingInquiryCreate):
     """Create a new booking inquiry"""
     inquiry_data = input.model_dump()

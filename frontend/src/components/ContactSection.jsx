@@ -68,8 +68,26 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.event_type) {
-      toast.error("Please fill in required fields");
+    // Validate required fields
+    if (!formData.name || !formData.name.trim()) {
+      toast.error("Name is required");
+      return;
+    }
+    
+    if (!formData.email || !formData.email.trim()) {
+      toast.error("Email is required");
+      return;
+    }
+    
+    // Basic email validation
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(formData.email.trim())) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    
+    if (!formData.event_type) {
+      toast.error("Please select an event type");
       return;
     }
 
