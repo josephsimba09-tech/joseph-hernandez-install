@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-03-04T03:26:36.212774",
+  "total_tests": 10,
+  "passed_tests": 6,
+  "success_rate": 60.0,
+  "results": [
+    {
+      "test": "API Root",
+      "success": true,
+      "details": "Status: 200"
+    },
+    {
+      "test": "Health Check",
+      "success": true,
+      "details": "Status: 200"
+    },
+    {
+      "test": "Create Valid Booking",
+      "success": false,
+      "details": "Expected 201, got 200. Response: {\"id\":\"200ec98b-efc7-479f-a59f-3064f87cdf3f\",\"name\":\"John Doe\",\"email\":\"john.doe@example.com\",\"phone\":\"(555) 123-4567\",\"event_type\":\"Trade Show\",\"event_date\":\"2024-12-15\",\"budget\":\"$15,000 - $50,000\","
+    },
+    {
+      "test": "Create Minimal Booking",
+      "success": false,
+      "details": "Expected 201, got 200. Response: {\"id\":\"77e42b1b-4384-47c0-a443-01de5581a21f\",\"name\":\"Jane Smith\",\"email\":\"jane.smith@example.com\",\"phone\":null,\"event_type\":\"Corporate Event\",\"event_date\":null,\"budget\":null,\"location\":null,\"details\":"
+    },
+    {
+      "test": "Create Invalid Booking (Missing Fields)",
+      "success": true,
+      "details": "Status: 422"
+    },
+    {
+      "test": "Get All Bookings",
+      "success": true,
+      "details": "Status: 200"
+    },
+    {
+      "test": "Get Non-existent Booking",
+      "success": true,
+      "details": "Status: 404"
+    },
+    {
+      "test": "Update Non-existent Booking Status",
+      "success": true,
+      "details": "Status: 404"
+    },
+    {
+      "test": "Invalid Email Format",
+      "success": false,
+      "details": "Expected 422, got 200. Response: {\"id\":\"4a3c085c-16a6-4ec1-8ca4-5be9a0105c9e\",\"name\":\"Test User\",\"email\":\"invalid-email\",\"phone\":null,\"event_type\":\"Trade Show\",\"event_date\":null,\"budget\":null,\"location\":null,\"details\":null,\"status\":\""
+    },
+    {
+      "test": "Empty Required Fields",
+      "success": false,
+      "details": "Expected 422, got 200. Response: {\"id\":\"b9c41c5b-b806-428c-93e6-4853d237e18c\",\"name\":\"\",\"email\":\"\",\"phone\":null,\"event_type\":\"\",\"event_date\":null,\"budget\":null,\"location\":null,\"details\":null,\"status\":\"new\",\"created_at\":\"2026-03-04T03"
+    }
+  ]
+}
