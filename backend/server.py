@@ -11,7 +11,6 @@ from pydantic import BaseModel, Field, ConfigDict, field_validator
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
-from emergentintegrations.llm.providers.resend import send_email
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -22,9 +21,18 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Email configuration
-EMERGENT_API_KEY = os.environ.get('EMERGENT_API_KEY')
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
 NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'josephh590@yahoo.com')
+
+# Try to import resend
+try:
+    import resend
+    resend.api_key = RESEND_API_KEY
+    RESEND_AVAILABLE = True
+except ImportError:
+    RESEND_AVAILABLE = False
+    logging.warning("Resend library not available - email notifications disabled")
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -102,8 +110,8 @@ class BookingInquiryResponse(BaseModel):
 # Email notification helper
 async def send_booking_notification(booking: dict):
     """Send email notification for new booking"""
-    if not EMERGENT_API_KEY:
-        logging.warning("EMERGENT_API_KEY not configured - skipping email notification")
+    if not RESEND_AVAILABLE or not RESEND_API_KEY:
+        logging.info(f"Email notification skipped - RESEND_API_KEY not configured. New booking from: {booking.get('name')}")
         return None
     
     html_content = f"""
@@ -136,19 +144,17 @@ async def send_booking_notification(booking: dict):
     </div>
     """
     
-    subject = f"New Booking: {booking.get('event_type', 'Event')} - {booking.get('name', 'Unknown')}"
+    params = {
+        "from": SENDER_EMAIL,
+        "to": [NOTIFICATION_EMAIL],
+        "subject": f"New Booking: {booking.get('event_type', 'Event')} - {booking.get('name', 'Unknown')}",
+        "html": html_content
+    }
     
     try:
-        result = await asyncio.to_thread(
-            send_email,
-            api_key=EMERGENT_API_KEY,
-            from_email=SENDER_EMAIL,
-            to_emails=[NOTIFICATION_EMAIL],
-            subject=subject,
-            html_content=html_content
-        )
-        logging.info(f"Email notification sent successfully: {result}")
-        return result
+        email = await asyncio.to_thread(resend.Emails.send, params)
+        logging.info(f"Email notification sent successfully: {email.get('id')}")
+        return email
     except Exception as e:
         logging.error(f"Failed to send email notification: {str(e)}")
         return None
