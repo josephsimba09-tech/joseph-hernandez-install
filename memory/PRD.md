@@ -1,7 +1,14 @@
-# Pro AV Tech - Professional Event Technology Services
+# Joseph Hernandez - Trade Show & Events I&D Specialist
 
 ## Original Problem Statement
-User is an independent tech professional for trade shows, events, stages, video walls, private events, conventions, and high security events. Works across multiple states. Needs a professional landing page to share via business card where clients can message and book services with notification capability.
+Joseph Hernandez is an I&D (Installation & Dismantle) tech for trade shows and events. He builds booths, exhibits, fixtures, displays, and various structures for events. Member of Union Local 1175 and affiliates. Works with companies including Eagle, Show Link, Momentum, Alliance, MC², Expo, ERP, and more. Needs a professional landing page to share via business card where clients can contact and book services.
+
+## Contact Information
+- **Name**: Joseph Hernandez
+- **Email**: josephh590@yahoo.com
+- **Phone**: (786) 915-2359
+- **Union**: Local 1175 and affiliates
+- **Companies**: Eagle, Show Link, Momentum, Alliance, MC², Expo, ERP
 
 ## Architecture
 - **Frontend**: React + Tailwind CSS + Shadcn UI components
@@ -9,33 +16,22 @@ User is an independent tech professional for trade shows, events, stages, video 
 - **Theme**: Dark & sleek professional tech vibe
 - **Typography**: Barlow Condensed (headings), Manrope (body), JetBrains Mono (labels)
 
-## User Personas
-1. **Event Planners** - Corporate and private event organizers
-2. **Trade Show Managers** - Convention and trade show coordinators
-3. **Corporate Clients** - Companies needing AV/stage for presentations
-4. **Security Event Organizers** - High-security event planners
-
-## Core Requirements (Static)
-- [x] Professional landing page
-- [x] Hero section with impactful branding
-- [x] Services showcase (bento grid)
-- [x] Portfolio gallery
-- [x] About section with stats
-- [x] Contact/booking form
-- [x] Form validation (name, email, event type)
-- [x] MongoDB storage for inquiries
-- [x] Toast notifications
-- [x] Mobile responsive design
-- [x] Mobile sticky CTA
+## Core Services
+1. Booth Construction - Trade show booths, modular systems, multi-level structures
+2. Exhibits & Displays - Product displays, branded environments
+3. Fixtures & Signage - Banners, hanging signs, structural elements
+4. Trade Shows & Conventions - Full I&D services
+5. Dismantle & Strike - Teardown, packing, shipping prep
+6. Corporate Events - Conferences, product launches
 
 ## What's Been Implemented
 **January 2026**
 - Full landing page with hero, services, portfolio, about, contact, footer sections
+- Updated branding for I&D Specialist (not AV tech)
+- Real contact info: josephh590@yahoo.com, (786) 915-2359
+- Union Local 1175 mention, affiliated companies listed
 - Backend API: POST/GET /api/bookings with validation
-- Dark theme with Barlow Condensed + Manrope fonts
-- Shadcn UI components (calendar, select, toast via sonner)
 - Form validation for email format and required fields
-- Data-testid attributes for all interactive elements
 
 ## API Endpoints
 - `GET /api/health` - Health check
@@ -45,24 +41,17 @@ User is an independent tech professional for trade shows, events, stages, video 
 - `PATCH /api/bookings/{id}/status` - Update booking status
 
 ## Prioritized Backlog
-### P0 (Critical - Done)
-- [x] Landing page MVP
-- [x] Contact form with database storage
-- [x] Input validation
-
 ### P1 (Important - Future)
-- [ ] Email notification integration (SendGrid/Resend)
+- [ ] Email notification when form is submitted
 - [ ] Admin dashboard to manage bookings
-- [ ] SMS notifications via Twilio
+- [ ] Real portfolio images (your actual work)
 
 ### P2 (Nice to Have)
-- [ ] Real portfolio images upload
-- [ ] Client testimonials section
-- [ ] Blog/news section
-- [ ] Calendar availability view
 - [ ] QR code generator for business card
+- [ ] Client testimonials
+- [ ] Calendar availability
 
 ## Next Tasks
-1. Add email notification when form is submitted
-2. Create admin dashboard to view/manage booking inquiries
-3. Implement booking status workflow (new → contacted → confirmed → completed)
+1. Add email notifications when someone submits booking form
+2. Add your real portfolio photos of booth installations
+3. Create admin page to view incoming inquiries
